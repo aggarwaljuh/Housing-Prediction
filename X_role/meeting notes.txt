@@ -1,0 +1,102 @@
+12/19/2022 – In-class meeting notes
+- Health rebound check-in, Joe is feeling better, Juhi’s ankle not broken!
+- Issues with GitHub ReadMes being in conflict – prob a good idea for us each to rename the readme files in our individual branches
+o Also all agreed we’re fine with just keep notes in “main”’s ReadMe
+- Juhi has gotten the database all set in SQL – we need to work on getting it on cloud for everyone to connect to
+o Mongo possibly, or AWS buckets if under data limits?
+o Merged datasets available on Circle_branch, Will can use those in model, Tim can use them in Tableau
+- Dashboard, looking ahead: Juhi heard from Dave & Arin that they do want to see some HTML for that
+o Should be able to build a Flask app and link the Tableau workbook pages in the HTML; not urgent, but need to keep it in mind for later during Seg 3 & 4
+- Note on GitHub – Joe recommends for each of us to upload into the directory folders in each of our branches, will help him keep it organized
+o Also, be aware that because test_branch was created AFTER we cloned the repository, we need to “fetch” that to be able to get onto that branch in GitBash – Joe posted instructions in the group Slack channel
+- Dave came into our breakout and Juhi asked for help with sharing Mongo – outsourced to Arin
+- Will updated the image files of the plots, available on Github
+- Discussed current prelim model results; accuracy is 0 with full dataset, so breaking it up by different metrics seems inevitable; will start with breaking up by RUCC codes
+- GitHub phantom mistake “X_role” branch successfully deleted; process Joe posted for connecting to the Test_branch should work fine for everyone now
+- Juhi successfully worked with Arin to get Mongo connection set up – she posted the connection string that we will each need to access it in Slack
+12/14/2022 – In-class meeting notes
+- Joe not able to attend – sick with flu ?
+- Before going into group breakouts, Arin demonstrated using the .T function in Pandas to transpose columns/rows to address the issue Juhi was having with the Zillow data’s structure
+o Once we got into breakouts, Juhi found an alternative function that actually worked better for our particular dataset, the .stack function
+o Juhi shared screen to walk through getting the correct columns to act as indexes for the new DataFrame – three pairs of eyes being better than one, we were able to work together to get it working – great teamwork! Issue resolved!
+- Segment 1 deliverable due tonight
+o Checked in with everyone regarding coverage of deliverable requirements; all feeling good about what we have
+- Will walked us through the model as it stands so far
+o Has a good linear regression model working with a small sample of the data, should be good to input full dataset when ready
+o Discussed where to go next from there; group agreed that the complexity and volume of data we are working with justifies shooting for a deep learning model, so building that out to prepare for a full dataset is Will’s current target
+- During mid-class check-in Dave and Arin discussed the need for our databases to be publicly available in the cloud, and for each member to have their own individual username and password to access it
+- Tim brought up his plans on next moves for dashboard looking ahead to Segment 2 deliverables
+o Realized that the discussion from the previous meeting about setting up GeoJSON structure for county data may not be necessary – since plans are to build dashboard with Tableau, there is built-in map functionality there which shouldn’t require the GeoJSON library format
+o Shared screen to try out a quick proof-of-concept map in Tableau with the rural/urban county codes, and did manage to get it working
+* NOTE: in that process we were puzzled by the need to include both the county and state columns, because only including county made large swathes of the map go blank; realized after class this is likely due to duplicate county names across multiple states, so we do need both columns for Tableau to interpret the location data correctly
+- During end of class check-in Dave and Arin mentioned that all of us do need to each submit the Github url in the course module for each project segment
+o They also mentioned that right at the end of the project, each of us needs to clone the whole repository into a new one of our own ownership so that we can each have access to it after the course ends
+
+12/12/2022 – In-class meeting notes
+- Juhi encountered issue with needing to transform column to row data/vice versa
+o Needs help from everyone to find solution to issue: Zillow data not cooperating 
+- Will has got model structure started
+o Ran into issues with using Google Collab; group agreed we will stick to Jupyter Notebook
+- GeoJSON setup suggestion
+o Joe and Tim will look into it for the coming week
+- Github Issues!
+o We had some bugs to kill – phantom file was preventing branch switching, resolved during meeting
+- As per Dave’ rec, Joe checking out previous project ReadMes for structuring inspiration
+- Discussed trajectory for seg 2 deliverables moving forward
+- Meeting logistics
+o Got zips from team, will triangulate a location – Somerville/Bridgewater area seems pretty central – Joe posted map link for local Barnes & Noble in Slack:
+* https://www.google.com/maps/place/Barnes+%26+Noble/@40.5722702,-74.6771219,12z/data=!3m1!5s0x89c395a92f252f4d:0x275fba6f5df257d9!4m5!3m4!1s0x89c3953bb9c5a439:0x21c0a0b59555d74e!8m2!3d40.5774112!4d-74.6297081
+o Looking at calendar for good date – shooting for Tuesday 12/27, and planning rehearsal for final presentation the day before the final class, Tuesday 1/10
+- Dave stopped in and recommended during Will’s model demo that he spell some of that out in his branch ReadMe – we all need to do that as per his recommendation of keeping the process iterative
+- Question for Dave & Arin about how to submit the deliverables on Wednesday? All four of us submit one link? One person submit one link? All four of us submit different individual branch links?
+o Sounds like we can just submit the url for the main branch, Dave & Arin will checkout our individual branches as needed to give us the maximum points
+
+12/7/2022 – In-class meeting notes
+- Tim needs to look into a missing calendar request from Juhi – need to allow permissions for everyone
+o Resolved during meeting – invites for full calendar permissions sent via email
+- ACS demographic data not avail for 2022 yet; can use 1 year dataset for 2021, 5 year dataset for 2017-2020
+o Everyone: continue searching for 2022 data from other potential sources
+- For deliverables, let’s have them done for Mondays/Tuesdays so that we can review any issues before needing to submit on Wednesdays
+- Compiling data sources still in progress; Juhi will compile links we’ve put in Slack and some others she’s found; everyone post any additional links in Slack
+- Will is setting up about 4 provisional models for us to use dummy data for testing as 1st segment deliverable
+o Discussed keeping the coding in Google Collab rather than Jupyter Notebook as per recommendation from Dave & Arin
+- AZ mentioned his group breaking further into pairs for work; we think that doing the same once we get into the detail-oriented work of data cleaning would be a good idea for getting multiple sets of eyes on each set of work as we go
+- Discussed concern about whether Zillow can be considered an authoritative number for real estate
+o Appears it should be, as many of what we thought might be “competitors” are actually subsidiaries
+- Started discussing some of the issues that we anticipate in data cleaning:
+o Can see we have plenty of empty rows
+o There are NINE codes in ACS data for county “urban-ness”; we likely want to collapse those down to perhaps three (urban, suburban, rural)
+o County names have a number of issues surrounding them:
+* different naming conventions between government sources vs. Zillow
+* duplicate county names across different states
+* spelling inconsistencies
+
+12/5/2022 – In-class meeting notes
+- Tim will take notes for each session so we’re all on the same page. Will post to Slack, GitHub readme for everyone to reference as needed
+- Team name proposed and agreed on: Starfall
+- Pivoting topic from using weather as geographic predictor of increasing Covid cases --> using Covid cases as geographic predictor of increasing home sales
+- Scheduling & contact info:
+o Tim will create and share a Google calendar; will post dates people have said they are unavailable for potential meetings, everyone should be able to update the calendar with any more scheduling blackouts as individual conflicts arise
+o General weekday work schedules:
+* Joe & Will work 7-3
+* Juhi works 9-5
+* Tim’s schedule is 24/7 ever-changing chaos as a caregiver, but can generally arrange to be available for meetings/coordinating on any tasks at most times, feel free to contact via text whenever and he can at least respond to keep informed within a half hour
+o Phone numbers:
+* Joe: 908-566-6499
+* Juhi: 908-305-0706
+* Tim: 973-479-2971
+* Will: 732-492-7641
+- Current to do list for each of our roles (named as per the course module):
+o Joe (square): GitHub structure setup and sharing
+* Github usernames:
+* Joe: Jrheldmann
+* Juhi: aggarwaljuh
+* Tim: tfish110
+* Will: willenny
+o Juhi (circle): Database structure mockup
+o Tim (X): Calendar setup, checking out early quick & dirty data viz in Tableau
+o Will (triangle): prelim model setup
+o All: start getting more acquainted with the datasets available from the links we’ve put in slack from CDC, Census Bureau, Zillow
+* Remember to keep in mind that some of the raw data will need to be standardized, i.e. if one dataset is split into cities and another is split into counties, we will eventually need to group the city-based variables into their respective counties. We should be able to automate this process during data cleaning with a few lines of code.
+* Late in the meeting we discussed the importance of using housing data from years both pre-Covid AND post-Covid to make a case for home-buying behavior changing when Covid was introduced as a variable, so please keep that in mind when familiarizing ourselves with the datasets.
+- Calendar link: https://calendar.google.com/calendar/u/0?cid=MzZlNTY2YTM1MjM4YTMyMzVmMzZkZWY1YWVhZjhmZTM0OGVlNzRlZTAzZjA4ODY1ZjUzNmZjY2I1YmViNWRmZEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t

@@ -1,0 +1,17 @@
+Pre-meeting agenda 12/19/22
+- Time for opening checking in, chit-chat ??
+- Review of where we are each at with current tasks
+- Breakdown of what needs to be done for Seg 2 deliverables (due Wednesday 12/21)
+o Presentation
+* Basically, it sounds like all of the information for this part is done in text form in our GitHub ReadMes; everyone comfortable with Tim just drawing from that text to build Google slides?
+o GitHub
+* Honestly, this doesn’t seem too different from Seg 1 requirements; need to review and make sure we’re comfortable with what’s there
+o Model
+* Sounds like these requirements are mostly there, but perhaps need to expand a bit on explanation on why those models chosen?
+o Database
+* Sounds like we have the requirements for joins on tables but “Database interfaces with the project in some format” seems vague? Maybe Tableau integration will be enough?
+o Dashboard
+* Pretty much just sounds like we need to include some of the Tableau worksheets in the Google slides as the storytelling format
+- Planning for in-person meeting on 12/27
+o Do we want to set a time? Or perhaps plan to talk via text on the 26th about what time would work for us the next day?
+- Time for current concerns/forming action plan between now and next meeting

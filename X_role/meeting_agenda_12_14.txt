@@ -1,0 +1,9 @@
+Pre-meeting agenda 12/14/22
+- Time for opening checking in, chit-chat ??
+- Seg 1 deliverables status
+o Due tonight at 11:59pm, so top priority is finalizing all of that stuff and submitting
+- Check in on row/column conversion issue in Zillow data
+o Visual demo from Juhi about what we need?
+- Time for current concerns/forming action plan between now and next meeting
+o Discuss GeoJSON specifics of what we should need out of it, and if there is a “preferred” dataset to work from?
+o Review Seg 2 deliverable needs

@@ -1,0 +1,33 @@
+Pre-meeting agenda 12/12/22
+- Time for opening checking in, chit-chat ??
+- Opening business:
+o Thought this would be a good idea to keep meetings organized/productive
+o Will do the same with these as notes taken during meeting, add to Slack and Github so everyone has them
+- Seg 1 deliverable status
+o X role - Tim
+* Meeting notes should be good for the comm. protocol requirement
+* Stated goal of the project is a bit fuzzy in writing, can add a paragraph explaining our intentions
+* 2 “actual” content commits so far; adding this agenda and notes from tonight’s meeting should get me to four, extra paragraph certainly gets me there
+o Square role - Joe
+* Looks good as far as structuring repository requirements
+* 4 commits requirement? Could be an ongoing problem if Joe is just managing our commits but isn’t making his own?
+o Circle role - Juhi
+* Juhi has plenty of raw datasets and some processed data
+* Status of database itself rather than the CSVs within?
+* Lots of content, so guessing number of commits is fine
+o Triangle role - Will
+* Sample data commit is visible
+* Should add the prelim model code we discussed at the last meeting, and that should be plenty for the first seg requirements
+* Just be sure to make at least four separate commits to meet requirements
+- Time for current concerns
+- Looking ahead to Seg 2 requirements
+o X role
+* Need to start getting some of the data into Tableau for dashboard reqs.
+* The deliverable will need to be the beginnings of a presentation using Google Slides
+o Square role – Joe
+* Peer-review functionality built in to GitHub – should probably focus on getting that started at this point
+o Circle role – Juhi
+* Transitioning from mock database to the real deal, and continuing data cleaning
+* Delegating data cleaning tasks?
+o Triangle role – Will
+* Moving on from mock data and preliminary models to starting with the real deal
