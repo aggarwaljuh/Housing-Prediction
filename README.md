@@ -75,11 +75,11 @@ X:
 
 Are home prices in rural, suburban, and urban areas being impacted the same way by COVID cases, or is the rate of home price change different based on these location classifications?
 
-## Presentation & Dashboard
+## Presentation & Dashboard & Database
 
 Google Slideshow: https://docs.google.com/presentation/d/1kjO0vaHzWOCidoWfdnLT9qGtgoUTodmvxP2sFZ1uGJk/edit#slide=id.p
 
-Dashboard (published via Tableau Public): https://public.tableau.com/app/profile/tim5029/viz/Starfall_Dashboard/StarfallDashboard?publish=yes
+Tableau Public Workbook: https://public.tableau.com/app/profile/tim5029/viz/Starfall_Dashboard/StarfallDashboard?publish=yes
 
 
 ## Data Base
@@ -104,40 +104,48 @@ After looking at tablaeu it was realized that the New York City did not have any
 
 Final database both in MongoDB but also in Circle folder under merged_data
 
-Iterations in detail: [Databasedocumentation.docx](https://github.com/Jrheldmann/Starfall/files/10396325/Databasedocumentation.1.docx)
+Iterations in detail: (Insert link currently in Circle folder, Circle_roleReadMe.txt)
 
 Using PyMongo the data was connected to the machine learning.
 
 ## Machine Learning
 
-### Linear Regression
-Using the sample_data.csv focused was placed on the "cases" and "Cost" columns, with the cases as the feature (independent variable) and the Cost as the target (dependent variable). 
+Description of data preprocessing
 
- The data was scaled for cases and Cost and created a new linear regression model. The y-intercept changed due to the scaling and the slope changed from 0.06 to 0.08. There is a positive association between cases and Cost. It would be worth looking into the correlation coefficient also to see how strongly correlated the two variables are. 
+- Using the final data set, preprocessing began with removing any rows or columns that contained null values. Using the years 2019, 2020, and 2021 will allow the machine learning models to make conclusions from data pre-covid, covid's peak, and the subsiding of covid. The columns “_id” will be removed due to it being a string. 
 
-### Logistical Regression
-The next step was to look at logistical regression to attempt to predict Cost based on all the other 24 features in the dataset. The data was not scaled. Since Y was binary this model was rejected.
+Description of feature engineering and the feature selection, including the decision-making process
 
-### Neural Network
-Next I decided to include all of the columns besides the C_S column, which represented the county and state. A different column labeled "FIPS" is the US postal code for each row so that represents the location of the successfully with a numerical value. Since all other columns were numerical with a wide range of numbers, I decided to scale each column. Then I began creating a basic neural network. As a preliminary value, I would hope that the basic neural network yields an accuracy score of 50% or above. Based on how successful the model it, I will consider using a deep learning model by creating additional layers and neurons. 
-
-After completing the basic neural network, using all 24 features, and 100 epochs, the accuracy is 0.0. Not the results I was looking for but I think I can improve the accuracy by removing some features. Since the basic neural network wasn't very successful, my next model will be a deep learning model since deep learning models are better at making predictions with many features. At this point, I'm hoping for the deep learning model will result in an accuracy higher than 0.0.
-
-### Second Segment
-
-Description of preliminary data preprocessing
-- Using sample_data.csv, there are 26 columns. As a precautionary measure, all rows and columns that contain all null values will be removed. The data in this dataframe is from year 2017 to 2021. In order to not have Pre-Covid-19 data skew our results, all data prior to the year 2019 will be removed. We belive this will allow us to set a baseline of how housing costs have changed prior to the pandemic. 
-
-Description of preliminary feature engineering and preliminary feature selection, including the decision-making process
-- For the linear regression model, we will use Covid Cases as the feature, and House Cost as the target. In other models, we will removing other columns, such as county/state and per capita income, that we don't feel will be important features in predicting our target. Right now the target of House Cost is a quantitative variable, which may present a problem with neural networks. If the neural network produces results with low accuracy, we may have to create a a new column that represents whether there is a Cost Increase or Cost Decrease from the previous month. This column would be binary and might allow the neural network to have improved accuracy. 
-
-![linear_regression](https://user-images.githubusercontent.com/109091887/209036936-a2f53f8c-03d2-4940-ba62-9372d25c919c.png)
+- Due to there being 24 columns in the final data set, not all features will be used. In order to determine which features are good predictors of the target, each feature will be compared with the target and the correlation will be calculated. Any feature that has a correlation coefficient less than 0.20 will be removed before entering the data into the deep learning model.
+- Features with large correlations will be used in the linear regression model, with the house cost as the target.
 
 Description of how data was split into training and testing sets
-- When using the basic neural network, the train_test_split method from the sklearn library will be used. By default, the train size will be we to 0.25. 
+
+- When using the deep learning model, the train_test_split method from the sklearn library will be used. By default, the train size will be we to 0.25.
 
 Explanation of model choice, including limitations and benefits
-- Using a linear regression model be will beneficial to use if the data continues to stay linear. This will be determined when the entire dataset is imported into the model. If the Covid Cases and House Cost do not have a linear relationship then another model will be considered. Another limitation of this model if the removal of many possible features. These other potential feature may play a big role in making predictions of the target. Other models that are being considered are logisitical regression, PCA, neural networks, and deep learning models. 
+
+- Using a linear regression model be will beneficial because it will show the correlation with the specific feature and the target, house cost. After the correlation between each feature was calculated, select features will be used in the regression model. Below are the three regression models that were most prominant.
+
+
+![linear_regression_cases_cost](https://user-images.githubusercontent.com/109091887/211933815-943ff311-e58f-4cd7-963a-21ec0495b705.png) ![linear_regression_pcincome_cost](https://user-images.githubusercontent.com/109091887/211933842-2f63304f-d1e7-4b91-9d69-825deaa17ced.png) ![linear_regression_medage_cost](https://user-images.githubusercontent.com/109091887/211933852-1484d8a9-578b-42dc-bc6f-f18ee932bc36.png)
+
+A limitation of the linear regression model is the removal of many features. These other features may potentially play a big role in making predictions of the target. Also multiple features being used at the same time could improve a more sophisticated machine learning model.
+
+Explanation of changes in model choice (if changes occurred between the Segment 2 and Segment 3 deliverables)
+
+- After using the final data in the linear regression model, certain features do show a moderate linear pattern with house cost. Although this machine learning model does give us some insight, additional machine learning models will be considered. In order to include multiple features at once, a deep learning neural network was implemented next. Features that showed a correlation of less than 0.2 when compared with house cost were removed before training the model. 
+
+Description of how the model was trained (or retrained, if the team is using an existing model)
+
+- The deep learning model was designed using 18 features (input dimenstions), two hidden layers of 8 and 4 neurons (using the relu activation function), and one output layer (using the sigmoid activation function). At first, the model was not successful in training and predicted house cost based on all features. Several adjustments were made in attempt to improve the current accuracy score of 0. The scaler function was changed from StandardScaler to MinMaxScaler so values are scaled from 0 to 1 instead of -1 to 1. The first layer's activation function was changed from sigmoid to relu but the output layer is kept as sigmoid. This resulted in an improved accuracy score.
+
+![Deep_Learning_Epochs_Accuracy](https://user-images.githubusercontent.com/109091887/211936382-47601fa6-13fe-4c42-a0b4-c09c41fd6aee.PNG)
+
+Description and explanation of model's confusion matrix, including final accuracy score
+
+- An unsupervised learning model was not used therefore there is no confusion matrix.  
+- Accuracy score improved from 0 to 2.7979e-05.
 
 ## Conclusion
 Ultimately, the results demonstrate that 'Per Capita Income' was the largest factor in regards to Typical Housing Value and that there isn't a strong correlation between the Covid Cases Total and Typical Housing Value despite an obvious skew in value across metro, metro-adjacent, and rural designated counties. 
