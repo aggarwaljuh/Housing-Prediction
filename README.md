@@ -148,7 +148,7 @@ Description and explanation of model's confusion matrix, including final accurac
 - Accuracy score improved from 0 to 2.7979e-05.
 
 ## Conclusion
-Ultimately, the results demonstrate that 'Per Capita Income' was the largest factor in regards to Typical Housing Value and that there isn't a strong correlation between the Covid Cases Total and Typical Housing Value despite an obvious skew in value across metro, metro-adjacent, and rural designated counties. 
+Ultimately, the results demonstrate that 'Per Capita Income' was the largest factor in regards to Typical Housing Value and that there isn't a strong correlation between the Covid Cases Total and Typical Housing Value despite an obvious skew in value across metro, metro-adjacent, and rural designated counties. The other factors do not correlated with housing costs.
 Sadly, Deep Learning didn't prove compatible with the available data due to high loss values.
 
 ## Future Work
@@ -164,7 +164,7 @@ Sadly, Deep Learning didn't prove compatible with the available data due to high
 ## What would we change?
 
 * Look at demographics as percentages instead of raw numbers
-* Find COVID case data for New York City
+* Find COVID case data for New York City. 
 
 
 ## Technology Used
