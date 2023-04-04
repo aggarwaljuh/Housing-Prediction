@@ -153,7 +153,7 @@ Sadly, Deep Learning didn't prove compatible with the available data due to high
 
 ## Future Work
 
-* Add in 2022 data when it becomes available
+* Add in 2022 data when it becomes available, this data should be avalible in June 2023.
 * Conduct a literature review of past economic research into housing market fluctuations
 * Consider alternative analogous measures (e.g. population density of a county rather than RUCC, GDP of a county rather than income per capita)
 * Account for changes in relative numbers of renters vs. owners, changes in rent prices
